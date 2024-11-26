@@ -16,6 +16,9 @@ import authRoutes from './routes/userAuthRoutes/userAuthRoutes.js';
 // Import image handling routes
 import imageRoutes from './routes/imageRoutes/imageRoutes.js';
 
+// Import googleAuthRoutes
+import googleAuthRoutes from './routes/googleAuthRoutes.js'; 
+
 // Import the MongoDB connection URL from config file
 import { MONGO_URL } from './config/config.js';
 
@@ -57,6 +60,8 @@ const customFormat =
 // Use Morgan middleware to log HTTP requests with the defined custom format
 // app.use(morgan(customFormat));
 
+// Use Google authentication routes for root path
+app.use('/', googleAuthRoutes);
 // Use user authentication routes for root path
 app.use('/', authRoutes);
 
